@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Class" ALTER COLUMN "name" SET DATA TYPE TEXT;
+
+-- AlterTable
+ALTER TABLE "Student" ALTER COLUMN "classId" DROP DEFAULT;

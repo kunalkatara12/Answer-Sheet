@@ -5,13 +5,8 @@ import asyncHandler from "../utils/asyncHandler.utils";
 import { compare, hash } from "bcrypt";
 import { ApiResponse } from "../utils/ApiResponse.utils";
 import { generateAccessToken, generateRefreshToken } from "../utils/token.utils";
-const catchError = (error: any) => {
-    console.log(error);
-    throw new ApiError(
-        500,
-        "Something went wrong on generating access and refresh token in user.controllers.ts"
-    );
-};
+import { catchError } from "../utils/catchError.utils";
+
 const options = {
     httpOnly: true,
     secure: true,
@@ -91,7 +86,6 @@ export const login = asyncHandler(async (
         catchError(error);
     }
 });
-
 export const logout = asyncHandler(async (
     req: Request,
     res: Response,

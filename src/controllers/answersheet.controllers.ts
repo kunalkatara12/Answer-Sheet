@@ -6,13 +6,7 @@ import {
 import asyncHandler from "../utils/asyncHandler.utils";
 import { ApiError } from "../utils/ApiError.utils";
 import { uploadOnCloudinary } from "../utils/cloudinary.utils";
-const catchError = (error: any) => {
-    console.log(error);
-    throw new ApiError(
-        500,
-        "Something went wrong on generating access and refresh token in user.controllers.ts"
-    );
-};
+import { catchError } from "../utils/catchError.utils";
 export const uploadAnswerSheet = asyncHandler(
     async (req: Request & {files?:any}, res: Response, next: NextFunction) => {
         try{
